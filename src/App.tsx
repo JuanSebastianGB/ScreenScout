@@ -26,17 +26,20 @@ const useSearch = () => {
 
 function App() {
   const { search, setSearch, error } = useSearch();
-  const { movies, getMovies, isLoading } = useMovies({ search });
+  const [sort, setSort] = useState(false);
+  const { movies, getMovies, isLoading } = useMovies({ search, sort });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    getMovies();
+    getMovies({ search });
   };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const actualQuery = e.target.value;
     if (actualQuery.startsWith(' ')) return;
     setSearch(e.target.value);
+    getMovies({ search: actualQuery });
   };
+  const handleSort = () => setSort((prev) => !prev);
 
   return (
     <div className="page">
@@ -51,6 +54,7 @@ function App() {
             value={search}
           />
           {!!error && <p className="error">{error}</p>}
+          <input type="checkbox" checked={sort} onChange={handleSort} />
           <button>Search</button>
         </form>
       </header>

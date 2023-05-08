@@ -20,6 +20,6 @@ function NotMoviesResults() {
 
 export function Movies({ movies }: { movies: Movie[] | null }) {
   if (movies === null) return null;
-  const hasMovies = movies.length > 0;
+  const hasMovies = movies?.length > 0;
   return hasMovies ? <ListOfMovies movies={movies} /> : <NotMoviesResults />;
 }
