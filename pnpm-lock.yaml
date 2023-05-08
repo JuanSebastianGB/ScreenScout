@@ -10,6 +10,7 @@ specifiers:
   eslint: ^8.38.0
   eslint-plugin-react-hooks: ^4.6.0
   eslint-plugin-react-refresh: ^0.3.4
+  just-debounce-it: 3.2.0
   react: ^18.2.0
   react-dom: ^18.2.0
   standard: ^17.0.0
@@ -17,6 +18,7 @@ specifiers:
   vite: ^4.3.2
 
 dependencies:
+  just-debounce-it: 3.2.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   standard: 17.0.0_w3netynfp67v6uzkokbws5owq4
@@ -2166,6 +2168,10 @@ packages:
     dependencies:
       array-includes: 3.1.6
       object.assign: 4.1.4
+    dev: false
+
+  /just-debounce-it/3.2.0:
+    resolution: {integrity: sha512-WXzwLL0745uNuedrCsCs3rpmfD6DBaf7uuVwaq98/8dafURfgQaBsSpjiPp5+CW6Vjltwy9cOGI6qE71b3T8iQ==}
     dev: false
 
   /kind-of/6.0.3:
