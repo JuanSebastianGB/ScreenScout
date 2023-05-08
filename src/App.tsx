@@ -1,27 +1,8 @@
 import debounce from 'just-debounce-it';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useState } from 'react';
 import './App.css';
 import { Movies } from './components';
-import { useMovies } from './hooks';
-
-const useSearch = () => {
-  const [search, setSearch] = useState('');
-  const [error, setError] = useState('');
-  const isFirstInput = useRef(true);
-
-  useEffect(() => {
-    if (isFirstInput.current) {
-      isFirstInput.current = search === '';
-      return;
-    }
-    if (search === '') return setError('you can not search for nothing');
-    if (search.match(/^d+$/)) return setError('you can not search for numbers');
-    if (search.length < 3)
-      return setError('you can not search for less than 3 characters');
-    setError('');
-  }, [search]);
-  return { search, setSearch, error };
-};
+import { useMovies, useSearch } from './hooks';
 
 function App() {
   const { search, setSearch, error } = useSearch();
